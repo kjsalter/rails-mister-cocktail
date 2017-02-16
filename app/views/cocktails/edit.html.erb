@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Edit cocktail</h1>
+  <%= render 'form', cocktail: @cocktail %>
+
+  <%= link_to 'Show', cocktail_path(@cocktail) %> |
+  <%= link_to 'Back to list', cocktails_path %>
+</div>
