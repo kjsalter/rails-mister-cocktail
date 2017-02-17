@@ -34,6 +34,21 @@
       <%= render 'doses/form' %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+    <br>
+    <h3>Reviews!</h3>
+    <ul>
+      <% @cocktail.reviews.each do |review| %>
+        <li><%= review.content %></li>
+      <% end %>
+    </ul>
+    </div>
+    <div class="col-xs-12">
+      <h4>Add a review</h4>
+      <%= render 'reviews/form' %>
+    </div>
+  </div>
 
   <br>
   <%= link_to "Back to all cocktail list", cocktails_path %>
