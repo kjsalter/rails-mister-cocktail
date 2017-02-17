@@ -10,15 +10,9 @@
           <div class="card-name">
             <%= cocktail.name %>
           </div>
-          <div class="card-delete-edit">
-            <%= link_to edit_cocktail_path(cocktail) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to cocktail, method: :delete, data: { confirm: 'Are you sure?' }  do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          </div>
+          <% if cocktail.photo? %>
             <%= link_to "", cocktail_path(cocktail), class:"card-link"%>
+          <% end %>
         </div>
       </div>
     <% end %>
