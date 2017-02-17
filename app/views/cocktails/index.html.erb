@@ -1,38 +1,26 @@
 <div class="container">
-<div style="text-align: center">
+  <div style="text-align: center">
     <h1>List of all the amazing cocktails!</h1>
   </div>
-  <div class="col-md-offset-3 col-md-6">
-
-    <table class = 'table table-hover'>
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @cocktails.each do |cocktail| %>
-        <tr>
-          <td><%= cocktail.name %></td>
-          <td>
-            <%= link_to cocktail do %>
-            <i class="fa fa-eye" aria-hidden="true"></i>
-            <% end %>
-          </td>
-          <td>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= cl_image_path cocktail.photo.path, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-name">
+            <%= cocktail.name %>
+          </div>
+          <div class="card-delete-edit">
             <%= link_to edit_cocktail_path(cocktail) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
             <% end %>
-          </td>
-          <td>
             <%= link_to cocktail, method: :delete, data: { confirm: 'Are you sure?' }  do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
+              <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </div>
-
+          </div>
+            <%= link_to "", cocktail_path(cocktail), class:"card-link"%>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
