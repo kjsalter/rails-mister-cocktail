@@ -1,9 +1,9 @@
 class DosesController < ApplicationController
   before_action :set_cocktail, only: [:new, :create]
 
-  def new
+  # def new
     # @dose = Dose.new
-  end
+  # end
 
   def create
     @dose = Dose.new(dose_params)
@@ -11,7 +11,8 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      render 'new'
+      @review = Review.new
+      render 'cocktails/show'
     end
   end
 

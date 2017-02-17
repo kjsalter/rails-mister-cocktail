@@ -7,6 +7,14 @@
           <div class="card-name">
             <%= cocktail.name %>
           </div>
+          <div class="card-rating">
+            <% if cocktail.reviews.any? %>
+              <% rating = cocktail.reviews.average(:rating).round(0).to_i %>
+              <% rating.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>
             <%= link_to "", cocktail_path(cocktail), class:"card-link"%>
         </div>
       </div>
