@@ -1,7 +1,4 @@
 <div class="container">
-  <div style="text-align: center">
-    <h1>List of all the amazing cocktails!</h1>
-  </div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
@@ -16,5 +13,10 @@
         </div>
       </div>
     <% end %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'cocktail-add.png' %>')";>
+        <%= link_to "", new_cocktail_path, class:"card-link"%>
+      </div>
+    </div>
   </div>
 </div>

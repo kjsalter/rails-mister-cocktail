@@ -16,7 +16,12 @@
     <% if @cocktail.photo? %>
     <%= cl_image_tag @cocktail.photo.path, width: 500, height: 300, crop: :fill %>
     <% end %>
-    <h4>Ingredient list: </h4>
+
+    <h4>Ingredient list:
+       <%= link_to new_cocktail_dose_path(@cocktail) do %>
+         <i class="fa fa-plus-circle" aria-hidden="true"></i>
+       <% end %>
+    </h4>
 
     <ul>
       <% @cocktail.doses.each do |dose| %>
@@ -28,9 +33,6 @@
       </li>
       <% end %>
     </ul>
-
-    <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
-    <br>
     <br>
     <%= link_to "Back to all cocktail list", cocktails_path %>
   </div>
