@@ -2,14 +2,12 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= cl_image_path cocktail.photo.path, height: 300, width: 400, crop: :fill %>')">
+        <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= cl_image_path (cocktail.photo? ? (cocktail.photo.path) : "generic_cocktail_gmaz71"), height: 300, width: 400, crop: :fill %>')">
           <div class="card-name">
             <%= cocktail.name %>
           </div>
-          <% if cocktail.photo? %>
             <%= link_to "", cocktail_path(cocktail), class:"card-link"%>
-          <% end %>
         </div>
       </div>
     <% end %>
